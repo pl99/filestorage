@@ -1,0 +1,18 @@
+###
+GET http://{{host}}:59097/s3/buckets
+
+###
+GET http://{{host}}:59097/s3/appelationstorage/files
+
+###
+GET http://{{host}}:59097/s3/appelationstorage/Плечи Откатки.docx
+
+###
+DELETE http://{{host}}:59097/s3/appelationstorage/files/Котин_Павел_Евгеньевич.jpg
+
+###
+DELETE http://{{host}}:59097/s3/appelationstorage/files/Плечи Откатки.docx
+
+###
+GET http://localhost:59097/s3/appelationstorage/files
+

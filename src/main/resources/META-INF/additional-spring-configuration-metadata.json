@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "s3.url",
+      "type": "java.lang.String",
+      "description": "url S3 storage"
+    },
+    {
+      "name": "s3.accessKey",
+      "type": "java.lang.String",
+      "description": "S3 storage login"
+    },
+    {
+      "name": "s3.secretKey",
+      "type": "java.lang.String",
+      "description": "S3 storage secretKey."
+    }
+  ] }

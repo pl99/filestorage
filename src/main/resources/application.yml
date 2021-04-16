@@ -1,0 +1,26 @@
+server:
+  error:
+    include-message: always
+  port: 59097
+
+
+spring:
+  application:
+    name: ${name}
+  cloud:
+    config:
+      fail-fast: true
+  main:
+    allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
+
+s3:
+  url: http://192.168.0.99:9009
+  accessKey: minioadmin
+  secretKey: minioadmin
+
