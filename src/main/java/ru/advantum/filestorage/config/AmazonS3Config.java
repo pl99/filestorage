@@ -1,4 +1,4 @@
-package ru.advantum.av.filestorage.config;
+package ru.advantum.filestorage.config;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
@@ -8,6 +8,7 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import io.minio.MinioClient;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
@@ -38,6 +39,15 @@ public class AmazonS3Config {
                 .withPathStyleAccessEnabled(true)
                 .withClientConfiguration(clientConfiguration)
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
+                .build();
+    }
+
+    @Bean
+    public MinioClient s3Client() {
+        return MinioClient.builder()
+                .endpoint(url)
+                .credentials(accessKey, secretKey)
+                .region(Regions.EU_CENTRAL_1.name())
                 .build();
     }
 }

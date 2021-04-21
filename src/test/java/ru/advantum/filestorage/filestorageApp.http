@@ -1,0 +1,24 @@
+###
+GET http://{{host}}:59097/s3/minio/buckets
+###
+GET http://{{host}}:59097/s3/amazon/buckets
+
+###
+GET http://{{host}}:59097/s3/minio/appelation
+
+###
+GET http://{{host}}:59097/s3/amazon/appelation
+
+###
+GET http://{{host}}:59097/s3/minio/appelation/Виновное лицо.docx
+
+###
+GET http://{{host}}:59097/s3/amazon/appelation/Виновное лицо.docx
+
+###
+DELETE http://{{host}}:59097/s3/minio/appelation/Виновное лицо.docx
+
+###
+DELETE http://{{host}}:59097/s3/amazon/appelation/Виновное лицо.docx
+
+

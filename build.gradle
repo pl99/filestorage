@@ -94,7 +94,7 @@ dependencies {
 //    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
 //    implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
-
+    implementation group: 'io.minio', name: 'minio', version: '8.2.0'
     implementation 'com.amazonaws:aws-java-sdk:1.11.163'
     implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.4.4'
 
