@@ -21,4 +21,19 @@ DELETE http://{{host}}:59097/s3/minio/appelation/Виновное лицо.docx
 ###
 DELETE http://{{host}}:59097/s3/amazon/appelation/Виновное лицо.docx
 
+###
+
+# curl --location --request POST 'http://localhost:59097/s3/minio/mystorage/folder2'
+#--form 'file=@"/C:/Users/Kotin/Downloads/Java_Cookbook_Problems_and_Solutions_for_Java_Developers_final_release.epub"'
+POST http://localhost:59097/s3/minio/mystorage/folder3
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="Java_Cookbook_Problems_and_Solutions_for_Java_Developers_final_release.epub""
+
+< "/Users/Kotin/Downloads/Java_Cookbook_Problems_and_Solutions_for_Java_Developers_final_release.epub"
+--WebAppBoundary--
+
+###
+
 
