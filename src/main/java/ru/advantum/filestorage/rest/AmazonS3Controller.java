@@ -38,7 +38,7 @@ public class AmazonS3Controller {
     @PostMapping(value = "{implementation}/{bucketName}/{folder}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public S3ObjDto upload(@PathVariable("bucketName") String bucketName,
                            @PathVariable("implementation") String implementation,
-                           @PathVariable("folder") String folder, @RequestParam MultipartFile file) {
+                           @PathVariable(value = "folder", required = false) String folder, @RequestParam MultipartFile file) {
         return getService(implementation)
                 .uploadFile(bucketName, file, folder);
     }

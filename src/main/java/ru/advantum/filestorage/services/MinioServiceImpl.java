@@ -25,10 +25,10 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import ru.advantum.filestorage.dto.BucketDto;
-import ru.advantum.filestorage.dto.S3ObjDto;
 import ru.advantum.filestorage.converters.BucketConverter;
 import ru.advantum.filestorage.converters.S3ObjDtoConverter;
+import ru.advantum.filestorage.dto.BucketDto;
+import ru.advantum.filestorage.dto.S3ObjDto;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;
@@ -94,16 +94,8 @@ public class MinioServiceImpl implements AmazonS3Service {
                         throw new RuntimeException(e);
                     }
                 })
-                .map(item -> S3ObjDto.builder()
-                        .lastModified(item.lastModified().toInstant())
-                        .etag(item.etag())
-                        .ownerName(item.owner().displayName())
-                        .size(item.size())
-                        .storageClass(item.storageClass())
-                        .bucketName(bucketName)
-                        .key(item.objectName())
-                        .build()
-                )
+                .map(s3ObjDtoConverter::toDto)
+                .map(it->it.toBuilder().bucketName(bucketName).build())
                 .collect(Collectors.toList());
     }
 
