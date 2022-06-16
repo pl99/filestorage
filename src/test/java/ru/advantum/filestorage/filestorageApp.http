@@ -4,7 +4,7 @@ GET http://{{host}}:59097/s3/minio/buckets
 GET http://{{host}}:59097/s3/amazon/buckets
 
 ###
-GET http://{{host}}:59097/s3/minio/appelation
+GET http://{{host}}:59097/s3/minio/common
 
 ###
 GET http://{{host}}:59097/s3/amazon/appelation
@@ -25,15 +25,27 @@ DELETE http://{{host}}:59097/s3/amazon/appelation/Виновное лицо.docx
 
 # curl --location --request POST 'http://localhost:59097/s3/minio/mystorage/folder2'
 #--form 'file=@"/C:/Users/Kotin/Downloads/Java_Cookbook_Problems_and_Solutions_for_Java_Developers_final_release.epub"'
-POST http://localhost:59097/s3/minio/mystorage/folder3
+POST http://{{host}}:59097/s3/minio/common/folder3
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
-Content-Disposition: form-data; name="file"; filename="Java_Cookbook_Problems_and_Solutions_for_Java_Developers_final_release.epub""
+Content-Disposition: form-data; name="file"; filename="atrack3-grafana.png"
 
-< "/Users/Kotin/Downloads/Java_Cookbook_Problems_and_Solutions_for_Java_Developers_final_release.epub"
+< "/Users/Kotin/Downloads/atrack3-grafana.png"
 --WebAppBoundary--
 
 ###
+POST http://localhost:59097/s3/minio/common/folder4
+Content-Length: 210
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="/C:/Users/Kotin/Downloads/atrack3-grafana.png"
+Content-Type: image/png
+
+(data)
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+
+###
 

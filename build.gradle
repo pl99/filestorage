@@ -42,6 +42,8 @@ repositories {
 
 ext {
     set('springCloudVersion', "Hoxton.SR7")
+    set('okhttp3.version',"4.9.1")
+
 }
 
 processResources {
@@ -74,9 +76,9 @@ task integrationTest(type: Test) {
 
 dependencies {
     compileOnly 'org.projectlombok:lombok'
-    implementation 'org.mapstruct:mapstruct:1.3.1.Final'
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.3.1.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
     annotationProcessor 'org.projectlombok:lombok'
 
     implementation 'io.micrometer:micrometer-registry-prometheus'
@@ -87,14 +89,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    implementation 'org.springdoc:springdoc-openapi-ui:1.4.3'
+//    implementation 'org.springdoc:springdoc-openapi-ui:1.4.3'
 
-//    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
-//    implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
-    implementation group: 'io.minio', name: 'minio', version: '8.2.0'
+    implementation group: 'io.minio', name: 'minio', version: '8.4.1'
     implementation 'com.amazonaws:aws-java-sdk:1.11.163'
     implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.4.4'
 
@@ -112,7 +109,7 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-        mavenBom "org.springframework.boot:spring-boot-dependencies:2.3.2.RELEASE"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:2.6.8"
     }
 }
 

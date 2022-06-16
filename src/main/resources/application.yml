@@ -20,7 +20,7 @@ spring:
 
 
 s3:
-  url: http://192.168.0.99:9009
+  url: http://localhost:49000
   accessKey: minioadmin
   secretKey: minioadmin
 
