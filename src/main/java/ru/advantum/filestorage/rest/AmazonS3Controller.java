@@ -4,6 +4,7 @@ package ru.advantum.filestorage.rest;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.apache.http.entity.ContentType;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +57,20 @@ public class AmazonS3Controller {
                 .contentLength(data.length)
                 .header("Content-type", "application/octet-stream")
                 .header("Content-disposition", "attachment; filename=\"" + keyName + "\"")
+                .body(resource);
+    }
+
+    @GetMapping(value = "show/{implementation}/{bucketName}/{keyName}")
+    public ResponseEntity<ByteArrayResource> showFile(@PathVariable("bucketName") String bucketName,
+                                                          @PathVariable("implementation") String implementation,
+                                                          @PathVariable("keyName") String keyName) {
+        byte[] data = getService(implementation).downloadFile(bucketName, keyName);
+        ByteArrayResource resource = new ByteArrayResource(data);
+
+        return ResponseEntity
+                .ok()
+                .contentLength(data.length)
+                .header("Content-type", ContentType.IMAGE_JPEG.getMimeType())
                 .body(resource);
     }
 

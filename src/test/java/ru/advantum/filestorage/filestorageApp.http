@@ -23,9 +23,8 @@ DELETE http://{{host}}:59097/s3/amazon/appelation/Виновное лицо.docx
 
 ###
 
-# curl --location --request POST 'http://localhost:59097/s3/minio/mystorage/folder2'
-#--form 'file=@"/C:/Users/Kotin/Downloads/Java_Cookbook_Problems_and_Solutions_for_Java_Developers_final_release.epub"'
-POST http://{{host}}:59097/s3/minio/common/folder3
+# curl --location --request POST 'http://localhost:59097/s3/minio/mystorage/folder2'--form 'file=@"/mnt/c/Users/Kotin/Downloads/atrack3-grafana.png"'
+POST http://{{host}}:59097/s3/minio/common/folder5
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
@@ -35,17 +34,21 @@ Content-Disposition: form-data; name="file"; filename="atrack3-grafana.png"
 --WebAppBoundary--
 
 ###
-POST http://localhost:59097/s3/minio/common/folder4
-Content-Length: 210
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# curl --location --request POST 'http://localhost:59097/s3/minio/myfile/f2' --form 'file=@"/C:/Users/Kotin/Downloads/test form500.jpg"'
+POST http://localhost:59097/s3/minio/myfile/f2
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 
-----WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="/C:/Users/Kotin/Downloads/atrack3-grafana.png"
-Content-Type: image/png
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="test form500.jpg""
 
-(data)
-----WebKitFormBoundary7MA4YWxkTrZu0gW
-
+< "\C:\Users\Kotin\Downloads\test form500.jpg"
+--WebAppBoundary--
 
 ###
 
+###
+GET http://localhost:59097/s3/show/minio/taganrog-mobile/14_МП Таганрог.jpg
+Accept-Charset: UTF-8
+###
+GET http://localhost:59097/s3/minio/taganrog-mobile/11_14_06_2022.jpg
+Content-Type: image/jpeg

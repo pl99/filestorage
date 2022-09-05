@@ -1,10 +1,6 @@
 package ru.advantum.filestorage.services;
 
 
-import com.amazonaws.services.s3.model.Bucket;
-import com.amazonaws.services.s3.model.ObjectListing;
-import com.amazonaws.services.s3.model.PutObjectResult;
-import com.amazonaws.services.s3.model.S3Object;
 import lombok.SneakyThrows;
 import org.springframework.web.multipart.MultipartFile;
 import ru.advantum.filestorage.dto.BucketDto;

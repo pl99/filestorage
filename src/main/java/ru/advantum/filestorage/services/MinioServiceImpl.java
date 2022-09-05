@@ -23,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.Headers;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.advantum.filestorage.converters.BucketConverter;
@@ -107,9 +108,13 @@ public class MinioServiceImpl implements AmazonS3Service {
                 .object(key)
                 .build());
         byte[] content = obj.readAllBytes();
+        Headers headers = obj.headers();
+        log.info("{}", headers);
         obj.close();
         return content;
     }
+
+
 
     @SneakyThrows
     @Override
